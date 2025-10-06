@@ -1,26 +1,35 @@
 {
   "expo": {
-    "owner": "prisec",
-    "name": "PRISEC",
+    "name": "prisec-mobile",
     "slug": "prisec-mobile",
     "version": "1.0.0",
-    "ios": {
-      "bundleIdentifier": "com.rfceps.prisecmobile",
-      "buildNumber": "3",
-      "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false
-      }
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
     },
-    "extra": {
-      "eas": {
-        "projectId": "4dbc80cb-0a20-4eee-a324-3d17b0577edb"
-      }
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.rfceps.prisecmobile",
+      "googleServicesFile": "./ios/GoogleService-Info.plist"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.rfceps.prisecmobile"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-build-properties"
-    ],
-    "android": {
-      "package": "com.rfceps.prisecmobile"
-    }
+      "./app.plugin.js",
+      "@react-native-firebase/app",
+      "@react-native-firebase/auth"
+    ]
   }
 }

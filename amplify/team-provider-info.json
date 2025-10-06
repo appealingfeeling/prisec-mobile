@@ -13,7 +13,9 @@
     },
     "categories": {
       "auth": {
-        "prisecmobile868854fe": {}
+        "prisecmobile868854fe": {},
+        "prisecmobiledead22b9": {},
+        "userPoolGroups": {}
       },
       "api": {
         "prisecmobile": {}

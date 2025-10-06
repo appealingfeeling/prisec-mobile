@@ -1,0 +1,50 @@
+# Simple User model
+type User @model @auth(rules: [
+  { allow: owner, ownerField: "id" },
+  { allow: private, operations: [read] }
+]) {
+  id: ID!
+  email: AWSEmail!
+  name: String!
+  role: UserRole!
+  phone: AWSPhone
+  createdAt: AWSDateTime!
+}
+
+enum UserRole {
+  ADMIN
+  OFFICER
+  CLIENT
+}
+
+# Simple Incident model
+type Incident @model @auth(rules: [
+  { allow: private }
+]) {
+  id: ID!
+  title: String!
+  description: String
+  status: IncidentStatus!
+  priority: IncidentPriority!
+  location: String
+  reportedById: ID!
+  reportedBy: User @belongsTo(fields: ["reportedById"])
+  assignedToId: ID
+  assignedTo: User @belongsTo(fields: ["assignedToId"])
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+enum IncidentStatus {
+  OPEN
+  IN_PROGRESS
+  RESOLVED
+  CLOSED
+}
+
+enum IncidentPriority {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
